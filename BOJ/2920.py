@@ -1,7 +1,7 @@
 input_sound = list(map(int, input().split()))
 c_major = [1, 2, 3, 4, 5, 6, 7, 8]
 cnt = 0;
-bcnt =0;
+bcnt = 0;
 
 for i in range(len(c_major)):
     if input_sound[i] == c_major[i]:
