@@ -4,10 +4,10 @@ taro_money = 1000
 coin_count = 0
 changes = taro_money - product_money
 
-coin_list = [500, 100, 50, 10, 1]
+coin_list = [500, 100, 50, 10, 5,1]
 
 for coin in coin_list:
     coin_count += changes // coin
-    changes %= coin
+    changes = changes - (changes // coin) * coin
 
 print(coin_count)
