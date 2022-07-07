@@ -37,7 +37,7 @@ for i in range(0, test_case):
     max_num2 = people[0][1]
 
     for j in range(1, test_num):
-        if max_num2 > people[j][1] :
+        if max_num2 > people[j][1]:
             count += 1
             max_num2 = people[j][1]
 
