@@ -2,7 +2,7 @@
 from collections import deque
 #  8 방향 갈수있는지 없는지 체크하는 함수
 def bfs(cur_x, cur_y, arr_x, arr_y):
-    if cur_x == arr_x and cur_y == arr_y:
+    if cur_x == arr_x and cur_y == arr_y: # 시작위치, 끝나는위치 같으면 0 출력.
         print(0)
         return
     queue = deque()
