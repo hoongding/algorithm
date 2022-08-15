@@ -13,14 +13,14 @@ temp = 0
 k = avg
 while 1:
     for i in range(lecture_num):
-        if temp+lecture[i] == k: # 같으면 그냥 끊어?
+        if temp+lecture[i] == k:  # 같으면 그냥 끊어?
             sum_list.append(temp+lecture[i])
             temp = 0
             continue
-        elif temp+lecture[i] > k: # 만약 temp가 avg보다 크면
+        elif temp+lecture[i] > k:  # 만약 temp가 avg보다 크면
             a = temp+lecture[i] - k
             b = k - temp
-            if a > b: # 만약 더한 놈보다 그전이 avg보다
+            if a > b:  # 만약 더한 놈보다 그전이 avg보다
                 sum_list.append(temp)
                 temp = 0
             else:
