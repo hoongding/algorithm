@@ -1,26 +1,26 @@
+# 스코빌 지수 K 이상 되도록
+# 지수가 가장 낮은 두개 음식을 섞은 음식 
+# 스코빌 = min 스코빌 + (두번째 min 스코빌 * 2)
+# 스코빌 K 이상 될 때까지 섞음.
+# scoville : 음식의 스코빌 지수 배열
+# K : 스코빌 지수.
+# K 이상으로 만들기 위해 섞어야 하는 최소 횟수를 return
 import heapq
 
+
 def solution(scoville, K):
-    # 섞은 음식의 스코빌 지수 = 가장 맵지 않은 음식의 스코빌 지수 + (두 번째로 맵지 않은 음식의 스코빌 지수 * 2)
-    # Leo는 모든 음식의 스코빌 지수가 K 이상이 될 때까지 반복하여 섞습니다
-    # scoville : 음식의 스코빌 지수를 담은 배열
-    # K : 스코빌 지수
-    # 모든 음식의 스코빌 지수를 K 이상으로 만들기 위해 섞어야 하는 최소 횟수
-    # 모든 음식의 스코빌 지수를 K 이상으로 만들 수 없는 경우에는 -1을 return 합니다
-
-    cnt = 0  # 몇번 섞었는지
+    answer = 0
     heapq.heapify(scoville)  # heap으로 만들기.
-    min_sco = heapq.heappop(scoville)  # 먼저 제일 작은값 뽑아서 K랑 비교.
-    while min_sco <= K:
-        mix = min_sco + (heapq.heappop(scoville) * 2)
-        heapq.heappush(scoville, mix)
-        min_sco = heapq.heappop(scoville)
-        cnt += 1
-
+    min_sco = heapq.heappop(scoville)
+    while min_sco < K:
+        temp = min_sco + (heapq.heappop(scoville) * 2)
+        heapq.heappush(scoville, temp)
+        answer += 1
         if len(scoville) == 1:
             if scoville[0] >= K:
-                return cnt
+                return answer
             else:
                 return -1
+        min_sco = heapq.heappop(scoville)
 
-    return cnt
+    return answer
